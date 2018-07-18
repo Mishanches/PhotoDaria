@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Фотограф Дарья Луговая</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Фотограф Дарья Луговая</string>
+    <string name="nav_header_contacts">lugovaya-daria@mail.ru</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="wedding_photo">Свадебные фото</string>
+    <string name="family_photo">Семья</string>
+    <string name="pregnancy_photo">Беременность</string>
+    <string name="love_story_photo">Love-Story</string>
+    <string name="children_photo">Дети</string>
+
+    <string name="about">Дарья Луговая</string>
+    <string name="about_me">О фотографе</string>
+    <string name="communicate">Контакты</string>
+
+    <string name="full_image_tittle">Фотография</string>
+
+    <string name="error_no_connection_text">Нет сети. Проверьте подключение к интернету.</string>
+    <string name="error_no_connection_button">Ошибка сервера. Попробуйте зайти в приложение позже.</string>
+
+    <string name="title_wedding">Свадебные фотографии</string>
+    <string name="title_pregnancy">Беременность</string>
+    <string name="title_love_story">Love-Story</string>
+    <string name="title_family">Семья</string>
+    <string name="title_children">Дети</string>
+
+    <string name="communicate_text">\tСвязаться со мной можно любым удобным способом: \n\n</string>
+    <string name="email_text">e-mail: lugovaya-daria@mail.ru</string>
+    <string name="phone_text">телефон: 8 (903) 575-64-31</string>
+
+    <string name="contacts_text">Мои контакты</string>
+    <string name="about_me_text">\tРада приветствовать Вас в моем приложении. Меня зовут Дарья Луговая, и я более 7 лет занимаюсь
+    профессиональной фото и видеосъемкой. С ранних лет меня привлекало все то, что приносит радость людям - свадебные торжества,
+        Дни Рождения, детишки. Люблю атмосферу праздника и делаю все возможное, чтобы самые прекрасные и важные моменты в жизни
+        сохранялись в лучшем качестве.\n\n
+     \tЕсли Вам нужна профессионаьная фотосессия по демократичным ценам, буду рада запечатлеть любые яркие моменты Вашей
+    жизни. Работаю по всей Москве и Московской области. </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

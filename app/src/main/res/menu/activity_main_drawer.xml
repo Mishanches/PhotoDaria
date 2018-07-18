@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/wedding_photo"
+            android:icon="@drawable/ic_wending"
+            android:title="@string/wedding_photo"/>
+        <item
+            android:id="@+id/pregnancy_photo"
+            android:icon="@drawable/ic_pregnantcy"
+            android:title="@string/pregnancy_photo" />
+        <item
+            android:id="@+id/love_story_photo"
+            android:icon="@drawable/ic_love_story"
+            android:title="@string/love_story_photo" />
+        <item
+            android:id="@+id/family_photo"
+            android:icon="@drawable/ic_family"
+            android:title="@string/family_photo"/>
+        <item
+            android:id="@+id/children_photo"
+            android:icon="@drawable/ic_children"
+            android:title="@string/children_photo" />
+    </group>
+
+    <item android:title="@string/about">
+        <menu>
+            <item
+                android:id="@+id/about_me"
+                android:icon="@drawable/ic_about_me"
+                android:title="@string/about_me" />
+            <item
+                android:id="@+id/communicate"
+                android:icon="@drawable/ic_communicate"
+                android:title="@string/communicate" />
+        </menu>
+    </item>
+
+</menu>

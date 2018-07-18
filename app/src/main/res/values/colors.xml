@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1676cf</color>
+    <color name="colorPrimaryDark">#1d69af</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorContacts">#792d47</color>
+    <color name="colorText">#fcfcfc</color>
+    <color name="colorBgActivity">#864714</color>
+</resources>
