@@ -21,6 +21,11 @@ import java.net.UnknownHostException
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    val PAGE_ID = "page_id"
+    val TITLE_ID = "title_id"
+    var currentPhotoCategory: Int = 6
+    var currentCategoryTitle: String? = resources.getString(R.string.app_name)
+
     // объект адаптера с картинками
     private var imageAdapter = ImageAdapter({
         startActivity(Intent(this, FullImageActivity::class.java)
@@ -33,17 +38,33 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        loadPhoto()
+        // тут данные записываем (при перевороте экрана)
+        if (savedInstanceState != null) {
+            currentPhotoCategory = savedInstanceState?.getInt(PAGE_ID)
+            currentCategoryTitle = savedInstanceState?.getString(TITLE_ID)
+        }
 
-        rvImages.layoutManager = GridLayoutManager(this, 3)
-        rvImages.adapter = imageAdapter // к нашему РесайклВьюе присвоили адаптер по имени imageAdapter
+            loadPhoto(currentPhotoCategory)
 
 
-        val toggle = ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer_layout.addDrawerListener(toggle)
-        toggle.syncState()
-        nav_view.setNavigationItemSelectedListener(this) // устанавливаем слушатель на NavigationView(шторка) в main_activity
+
+            rvImages.layoutManager = GridLayoutManager(this, 3)
+            rvImages.adapter = imageAdapter
+
+
+            val toggle = ActionBarDrawerToggle(
+                    this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+            drawer_layout.addDrawerListener(toggle)
+            toggle.syncState()
+            nav_view.setNavigationItemSelectedListener(this) // устанавливаем слушатель на NavigationView(шторка) в main_activity
+
+    }
+
+    // перед уничтожением Активити сохраняем текущую позицию
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putInt(PAGE_ID, currentPhotoCategory)
+        outState?.putString(TITLE_ID, currentCategoryTitle)
+        super.onSaveInstanceState(outState)
 
     }
 
@@ -52,6 +73,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             try{
                 // получаем данные с сервера и присваиваем адаптеру
                 val photoCategory = ServiceGenerator.serverApi.loadPhotoCategory(id_player).await()
+
+                currentPhotoCategory = id_player // при перевороте экрана сохраняем данные
+                supportActionBar?.setTitle(currentCategoryTitle)
 
                 imageAdapter.mData = photoCategory.images.toList()
 
@@ -80,31 +104,37 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (item.itemId) {
             R.id.wedding_photo -> {
-                loadPhoto(6)
-                supportActionBar?.setTitle(R.string.title_wedding)
+
+                    loadPhoto(6)
+                currentCategoryTitle = resources.getString(R.string.wedding_photo)
+                supportActionBar?.setTitle(currentCategoryTitle)
 
 
             }
             R.id.pregnancy_photo -> {
 
                 loadPhoto(8)
-                supportActionBar?.setTitle(R.string.title_pregnancy)
+                currentCategoryTitle = resources.getString(R.string.title_pregnancy)
+                supportActionBar?.setTitle(currentCategoryTitle)
 
             }
             R.id.love_story_photo -> {
 
                 loadPhoto(7)
-                supportActionBar?.setTitle(R.string.title_love_story)
+                currentCategoryTitle = resources.getString(R.string.title_love_story)
+                supportActionBar?.setTitle(currentCategoryTitle)
 
             }
             R.id.family_photo -> {
                 loadPhoto(10)
-                supportActionBar?.setTitle(R.string.title_family)
+                currentCategoryTitle = resources.getString(R.string.title_family)
+                supportActionBar?.setTitle(currentCategoryTitle)
 
             }
             R.id.children_photo -> {
                 loadPhoto(9)
-                supportActionBar?.setTitle(R.string.title_children)
+                currentCategoryTitle = resources.getString(R.string.title_children)
+                supportActionBar?.setTitle(currentCategoryTitle)
 
             }
             R.id.about_me-> {
@@ -119,10 +149,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
 
-
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
 }
