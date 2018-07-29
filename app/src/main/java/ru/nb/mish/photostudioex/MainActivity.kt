@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     val PAGE_ID = "page_id"
     val TITLE_ID = "title_id"
     var currentPhotoCategory: Int = 6
-    var currentCategoryTitle: String? = resources.getString(R.string.app_name)
+    var currentCategoryTitle: String? = "Фотограф Дарья Луговая"
 
     // объект адаптера с картинками
     private var imageAdapter = ImageAdapter({
