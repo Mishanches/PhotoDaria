@@ -29,7 +29,8 @@ class FullImageFragment : Fragment() {
                         return false
                     }
 
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?,
+                                              isFirstResource: Boolean): Boolean {
                         imageView.setImageResource(R.drawable.ic_no_image)
                         return true
                     }

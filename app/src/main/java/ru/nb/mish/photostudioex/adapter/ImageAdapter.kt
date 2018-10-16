@@ -31,7 +31,7 @@ class ImageAdapter(private var onImageClick: (String) -> Unit) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        val imageUrl = mData!![position] // получаем из списка нужную картинку
+        val imageUrl = mData!![position]
 
         Glide.with(holder.itemView)
                 .load(imageUrl)
