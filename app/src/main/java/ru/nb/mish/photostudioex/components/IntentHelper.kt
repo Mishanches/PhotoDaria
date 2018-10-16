@@ -1,6 +1,5 @@
 package ru.nb.mish.photostudioex.components
 
-
 object IntentHelper {
 
     val IMAGE_GALLERY = "imagrgallery"

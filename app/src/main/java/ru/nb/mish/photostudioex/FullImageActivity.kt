@@ -18,12 +18,10 @@ class FullImageActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setTitle(R.string.full_image_tittle)
 
-        // viewPager-у устнавливаем свой адаптер
         viewPager.adapter = ImageStatePagerAdapter(
                 intent.getStringArrayListExtra(IntentHelper.IMAGE_GALLERY),
                 supportFragmentManager
         )
-
 
         viewPager.currentItem = intent.getIntExtra(IntentHelper.IMAGE_POS, -1)
     }
@@ -33,13 +31,9 @@ class FullImageActivity : AppCompatActivity() {
         return true
     }
 
-    // свой адаптер для листалок картинок во фрагменте
-    class ImageStatePagerAdapter(val imagesArray: ArrayList<String>, fm: FragmentManager): FragmentStatePagerAdapter(fm) {
-
-
+    class ImageStatePagerAdapter(val imagesArray: ArrayList<String>, fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
         override fun getItem(position: Int): Fragment? {
             return FullImageFragment.newInstance(imagesArray[position])
-
         }
 
         override fun getCount(): Int = imagesArray.size

@@ -7,7 +7,6 @@ import android.widget.TextView
 
 class ContactsActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts)
@@ -16,22 +15,17 @@ class ContactsActivity : AppCompatActivity() {
         supportActionBar?.setTitle(R.string.communicate)
 
         val tvDisplay = findViewById(R.id.tvEmailText) as TextView
-
         val data = R.string.email_text
 
-        // ссылка на клиент
         if (tvDisplay != null) {
             tvDisplay!!.setText(data)
             Linkify.addLinks(tvDisplay!!, Linkify.ALL)
         }
-
-
     }
-
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
-        overridePendingTransition(R.anim.activity_in_right, R.anim.activity_exit_right) // анимация
+        overridePendingTransition(R.anim.activity_in_right, R.anim.activity_exit_right)
         return true
     }
 
